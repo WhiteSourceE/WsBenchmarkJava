@@ -1,0 +1,26 @@
+
+b
+java:S2095*"GUse try-with-resources or close this "Statement" in a "finally" clause.(ĞÆ¡õüÿÿÿÿ
+b
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ĞÆ¡õüÿÿÿÿ
+?
+java:S1444")Make this "public static req" field final(Øş®¬
+M
+java:S1444"2Make this "public static dbConnection" field final(„°ÑŠøÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(šÄ´Ûûÿÿÿÿ
+>
+java:S1604"(Make this anonymous inner class a lambda(ÒĞêì
+>
+java:S1604""(Make this anonymous inner class a lambda(ÒĞêì
+e
+java:S1104"OMake req a static final constant or non-public and provide accessors if needed.(Øş®¬
+s
+java:S1104"XMake dbConnection a static final constant or non-public and provide accessors if needed.(„°ÑŠøÿÿÿÿ
+F
+java:S1128"0Remove this unused import 'InnerClasses.Inner1'.(Ú¬Óü
+?
+java:S1172!"*Remove this unused method parameter "req".(Ú€£p
+G
+java:S2201$",The return value of "toString" must be used.(Âù†şÿÿÿÿ
+c
+java:S1858$"H"input" is already a string, there's no need to call "toString()" on it.(Âù†şÿÿÿÿ
