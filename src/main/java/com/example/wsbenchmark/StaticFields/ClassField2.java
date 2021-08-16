@@ -9,33 +9,33 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("ClassField")
-public class ClassField {
+@RequestMapping("ClassField2")
+public class ClassField2 {
     public static Connection dbConnection = null;
     private final boolean aBoolean = true;
     private static String accountBalanceQuery;
 
     @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe";
         initBad(req);
+        accountBalanceQuery = FieldsHolder.sql;
         Statement statement = dbConnection.createStatement();
         statement.executeQuery(accountBalanceQuery);
     }
 
     private void initBad(HttpServletRequest req) {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
+        FieldsHolder.sql = "safe" + req.getParameter("user_id");
     }
 
 
     void initSafe() {
-        accountBalanceQuery = "safe";
+        FieldsHolder.sql = "safe";
     }
 
     @GetMapping("safe")
     void safe(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
         initSafe();
+        accountBalanceQuery = FieldsHolder.sql;
         Statement statement = dbConnection.createStatement();
         statement.executeQuery(accountBalanceQuery);
     }
