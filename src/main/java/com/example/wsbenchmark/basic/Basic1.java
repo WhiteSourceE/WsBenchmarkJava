@@ -1,4 +1,4 @@
-package com.example.wsbenchmark.test1;
+package com.example.wsbenchmark.basic;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
