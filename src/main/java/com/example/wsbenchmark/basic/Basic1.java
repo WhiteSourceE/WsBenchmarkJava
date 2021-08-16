@@ -1,6 +1,7 @@
-package com.example.wsbenchmark.StaticFields;
+package com.example.wsbenchmark.basic;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.servlet.http.HttpServletRequest;
@@ -9,34 +10,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("ClassField")
-public class ClassField {
+@RequestMapping("Basic1")
+public class Basic1 {
     public static Connection dbConnection = null;
-    private final boolean aBoolean = true;
-    private static String accountBalanceQuery;
 
     @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe";
-        initBad(req);
+        String accountBalanceQuery =
+                "safe" + req.getParameter("user_id");
         Statement statement = dbConnection.createStatement();
         statement.executeQuery(accountBalanceQuery);
-    }
-
-    private void initBad(HttpServletRequest req) {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
-    }
-
-
-    void initSafe() {
-        accountBalanceQuery = "safe";
     }
 
     @GetMapping("safe")
     void safe(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
-        initSafe();
-        Statement statement = dbConnection.createStatement();
-        statement.executeQuery(accountBalanceQuery);
+
+        PreparedStatement statement = dbConnection.prepareStatement("safe" + "?");
+        statement.setString(1, req.getParameter("user_id"));
+        statement.executeQuery();
     }
 }

@@ -1,4 +1,4 @@
-package com.example.wsbenchmark.StaticFields;
+package com.example.wsbenchmark.generics;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -9,34 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("ClassField")
-public class ClassField {
+@RequestMapping("generics")
+public class Generics {
     public static Connection dbConnection = null;
-    private final boolean aBoolean = true;
-    private static String accountBalanceQuery;
 
     @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe";
-        initBad(req);
+        GenericClass<String> gc = new GenericClass<>("safe" + req.getParameter("user_id"));
         Statement statement = dbConnection.createStatement();
-        statement.executeQuery(accountBalanceQuery);
-    }
-
-    private void initBad(HttpServletRequest req) {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
-    }
-
-
-    void initSafe() {
-        accountBalanceQuery = "safe";
+        statement.executeQuery(gc.getObj());
     }
 
     @GetMapping("safe")
     void safe(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
-        initSafe();
+        SafeGenericClass<String> gc = new SafeGenericClass<>("safe" + req.getParameter("user_id"));
         Statement statement = dbConnection.createStatement();
-        statement.executeQuery(accountBalanceQuery);
+        statement.executeQuery(gc.getObj());
     }
 }
