@@ -1,4 +1,4 @@
-package com.example.wsbenchmark.ConstantDeadCode;
+package com.example.wsbenchmark.For;
 
 import java.sql.Connection;
 import java.sql.SQLException;
