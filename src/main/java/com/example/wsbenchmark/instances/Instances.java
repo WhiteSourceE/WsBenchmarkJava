@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("Collections")
+@RequestMapping("Instances")
 public class Instances {
     public static Connection dbConnection = null;
 
