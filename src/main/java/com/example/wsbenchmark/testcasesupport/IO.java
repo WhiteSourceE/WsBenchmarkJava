@@ -5,9 +5,9 @@
  * */
 package com.example.wsbenchmark.testcasesupport;
 
-import java.io.*;
-import java.sql.*;
-import java.util.regex.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Logger;
 
 public class IO {
@@ -89,7 +89,7 @@ public class IO {
 
     /* Turns array of bytes into string.  Taken from:
     http://java.sun.com/developer/technicalArticles/Security/AES/AES_v1.html */
-    public static String toHex(byte byteBuffer[]) {
+    public static String toHex(byte[] byteBuffer) {
         StringBuffer strBuffer = new StringBuffer(byteBuffer.length * 2);
         int i;
 

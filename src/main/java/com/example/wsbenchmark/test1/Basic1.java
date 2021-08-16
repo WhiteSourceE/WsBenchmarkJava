@@ -1,19 +1,20 @@
 package com.example.wsbenchmark.test1;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RestController("basic")
+@RestController
+@RequestMapping("Basic1")
 public class Basic1 {
     public static Connection dbConnection = null;
 
-    @GetMapping("bad1")
+    @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {
         String accountBalanceQuery =
                 "safe" + req.getParameter("user_id");
@@ -21,7 +22,7 @@ public class Basic1 {
         statement.executeQuery(accountBalanceQuery);
     }
 
-    @GetMapping("safe1")
+    @GetMapping("safe")
     void safe(HttpServletRequest req) throws SQLException {
 
         PreparedStatement statement = dbConnection.prepareStatement("safe" + "?");

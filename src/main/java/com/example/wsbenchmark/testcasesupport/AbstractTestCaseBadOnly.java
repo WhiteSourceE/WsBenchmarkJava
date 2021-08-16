@@ -22,7 +22,7 @@ public abstract class AbstractTestCaseBadOnly extends AbstractTestCaseBase {
 
             IO.writeLine("Throwable's message = " + throwableException.getMessage());
 
-            StackTraceElement stackTraceElements[] = throwableException.getStackTrace();
+            StackTraceElement[] stackTraceElements = throwableException.getStackTrace();
 
             IO.writeLine("Stack trace below");
 

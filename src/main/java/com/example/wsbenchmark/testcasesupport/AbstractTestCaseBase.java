@@ -16,7 +16,7 @@ public abstract class AbstractTestCaseBase {
      */
     public static void mainFromParent(String[] args)
             throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        StackTraceElement stackTraceElements[] = Thread.currentThread().getStackTrace();
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
 
         String myClassName = stackTraceElements[stackTraceElements.length - 1].getClassName();
 

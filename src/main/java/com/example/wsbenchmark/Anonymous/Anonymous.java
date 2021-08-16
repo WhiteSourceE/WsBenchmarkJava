@@ -1,18 +1,17 @@
 package com.example.wsbenchmark.Anonymous;
 
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-
 @RestController
 @RequestMapping("anonymous")
-class AnonymousC {
+class Anonymous {
 
     interface Sql {
         String getSql();
@@ -39,7 +38,6 @@ class AnonymousC {
     void safe(HttpServletRequest req) throws SQLException {
         Sql sql = new Sql() {
             public String getSql() {
-                input.toString();
                 return "safe";
             }
         };

@@ -1,17 +1,18 @@
 package com.example.wsbenchmark.For;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@RestController("constantDeadCode")
+@RestController
+@RequestMapping("ConstantDeadCode")
 public class ConstantDeadCode {
     public static Connection dbConnection = null;
-    private boolean aBoolean = true;
+    private final boolean aBoolean = true;
 
     @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {

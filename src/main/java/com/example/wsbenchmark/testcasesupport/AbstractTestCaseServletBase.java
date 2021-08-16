@@ -17,7 +17,9 @@ AbstractTestCaseServlet classes.
 package com.example.wsbenchmark.testcasesupport;
 
 import java.io.IOException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public abstract class AbstractTestCaseServletBase extends HttpServlet {
     private static final long serialVersionUID = 1L; /* needed since Servlets are serializable */
@@ -29,7 +31,7 @@ public abstract class AbstractTestCaseServletBase extends HttpServlet {
      */
     public static void mainFromParent(String[] args)
             throws ClassNotFoundException, InstantiationException, IllegalAccessException {
-        StackTraceElement stackTraceElements[] = Thread.currentThread().getStackTrace();
+        StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
 
         String myClassName = stackTraceElements[stackTraceElements.length - 1].getClassName();
 
@@ -69,7 +71,7 @@ public abstract class AbstractTestCaseServletBase extends HttpServlet {
 
             IO.writeLine("<br>Throwable's message = " + throwableException.getMessage());
 
-            StackTraceElement stackTraceElements[] = throwableException.getStackTrace();
+            StackTraceElement[] stackTraceElements = throwableException.getStackTrace();
 
             IO.writeLine("Stack trace below");
 

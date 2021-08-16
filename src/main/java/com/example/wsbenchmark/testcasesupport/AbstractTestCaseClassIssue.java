@@ -24,7 +24,7 @@ public abstract class AbstractTestCaseClassIssue extends AbstractTestCaseBase im
 
             IO.writeLine("Throwable's message = " + throwableException.getMessage());
 
-            StackTraceElement stackTraceElements[] = throwableException.getStackTrace();
+            StackTraceElement[] stackTraceElements = throwableException.getStackTrace();
 
             IO.writeLine("Stack trace below");
 
@@ -42,7 +42,7 @@ public abstract class AbstractTestCaseClassIssue extends AbstractTestCaseBase im
 
             IO.writeLine("Throwable's message = " + throwableException.getMessage());
 
-            StackTraceElement stackTraceElements[] = throwableException.getStackTrace();
+            StackTraceElement[] stackTraceElements = throwableException.getStackTrace();
 
             IO.writeLine("Stack trace below");
 

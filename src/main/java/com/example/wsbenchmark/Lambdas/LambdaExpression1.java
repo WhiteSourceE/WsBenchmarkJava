@@ -1,11 +1,15 @@
 package com.example.wsbenchmark.Lambdas;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
+@RestController
+@RequestMapping("LambdaExpression1")
 public class LambdaExpression1 {
     public static Connection dbConnection = null;
 
@@ -13,6 +17,8 @@ public class LambdaExpression1 {
         String createSql();
     }
 
+
+    @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {
         IntegerMath sql = () -> {
             return
@@ -22,7 +28,7 @@ public class LambdaExpression1 {
         statement.executeQuery(sql.createSql());
     }
 
-
+    @GetMapping("safe")
     void safe(HttpServletRequest req) throws SQLException {
         IntegerMath sql = () -> {
             req.getParameter("user_id");

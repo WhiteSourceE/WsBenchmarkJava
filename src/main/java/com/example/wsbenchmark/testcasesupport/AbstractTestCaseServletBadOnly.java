@@ -17,7 +17,8 @@ function.
 package com.example.wsbenchmark.testcasesupport;
 
 import java.io.IOException;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 public abstract class AbstractTestCaseServletBadOnly extends AbstractTestCaseServletBase {
     private static final long serialVersionUID = 1L; /* needed since Servlets are serializable */
@@ -49,7 +50,7 @@ public abstract class AbstractTestCaseServletBadOnly extends AbstractTestCaseSer
 
             response.getWriter().println("<br><br>Stack trace below");
 
-            StackTraceElement stackTraceElements[] = throwableException.getStackTrace();
+            StackTraceElement[] stackTraceElements = throwableException.getStackTrace();
 
             for (StackTraceElement stackTraceElement : stackTraceElements) {
                 response.getWriter().println("<br>" + stackTraceElement.toString());
