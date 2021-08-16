@@ -17,9 +17,14 @@ public class ClassField {
 
     @GetMapping("bad")
     void bad(HttpServletRequest req) throws SQLException {
-        accountBalanceQuery = "safe" + req.getParameter("user_id");
+        accountBalanceQuery = "safe";
+        initBad(req);
         Statement statement = dbConnection.createStatement();
         statement.executeQuery(accountBalanceQuery);
+    }
+
+    private void initBad(HttpServletRequest req) {
+        accountBalanceQuery = "safe" + req.getParameter("user_id");
     }
 
 
