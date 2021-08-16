@@ -1,12 +1,0 @@
-
-i
-java:S2095 "GUse try-with-resources or close this "Statement" in a "finally" clause.(ĞÆ¡õüÿÿÿÿ8•ÔÌ¶±/
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(²€éÛ
->
-java:S1116"Remove this empty statement.(€’úùÿÿÿÿ8•ÔÌ¶±/
-O
-java:S1444"2Make this "public static dbConnection" field final(´¾úÓ8•ÔÌ¶±/
-u
-java:S1104"XMake dbConnection a static final constant or non-public and provide accessors if needed.(´¾úÓ8•ÔÌ¶±/
-i
-java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(ĞÆ¡õüÿÿÿÿ8•ÔÌ¶±/
