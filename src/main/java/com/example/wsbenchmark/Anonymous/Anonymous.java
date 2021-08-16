@@ -17,8 +17,8 @@ class Anonymous {
         String getSql();
     }
 
-    String input = "";//req.getParameter("user_id");
     public static HttpServletRequest req;
+    String input = req == null ? "" : req.getParameter("user_id");
     public static Connection dbConnection;
 
     @GetMapping("bad")

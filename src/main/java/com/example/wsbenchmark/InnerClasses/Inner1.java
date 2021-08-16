@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("Inner1")
 public class Inner1 {
     public static HttpServletRequest req;
-    String input = req.getParameter("user_id");
+    String input = req == null ? "" : req.getParameter("user_id");
 
     class Inner {
 
